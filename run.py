@@ -1,125 +1,207 @@
-import random
+'''imports'''
 
-class TicTacToe:
-    
+from time import sleep  # welcome message animation
+import sys  # to access parameters and functions
+import random  # computers turn
 
-    def __init__(self):
-        self.board = []
+# welcome title with animation
+welcome_message = "Tic_Tac_Toe game!\n"
 
-    def create_board(self):
-        for i in range(3):
-            row = []
-            for j in range(3):
-                row.append('-')
-            self.board.append(row)
+for x in welcome_message:
+    print(x, end='')
+    sys.stdout.flush()
+    sleep(.1)
 
-    def get_random_first_player(self):
-        return random.randint(0, 1)
+board = ["-", "-", "-",
+         "-", "-", "-",
+         "-", "-", "-"]
 
-    def fix_spot(self, row, col, player):
-        self.board[row][col] = player
+winner = None
+name = None
+current_player = "O"
+game_running = True
 
-    def is_player_win(self, player):
-        win = None
 
-        n = len(self.board)
+def print_board(board):
 
-        # checking rows
-        for i in range(n):
-            win = True
-            for j in range(n):
-                if self.board[i][j] != player:
-                    win = False
-                    break
-            if win:
-                return win
+    print(board[0] + " | " + board[1] + " | " + board[2])
+    print("---------")
+    print(board[3] + " | " + board[4] + " | " + board[5])
+    print("---------")
+    print(board[6] + " | " + board[7] + " | " + board[8])
 
-        # checking columns
-        for i in range(n):
-            win = True
-            for j in range(n):
-                if self.board[j][i] != player:
-                    win = False
-                    break
-            if win:
-                return win
+# print game instructions
 
-        # checking diagonals
-        win = True
-        for i in range(n):
-            if self.board[i][i] != player:
-                win = False
-                break
-        if win:
-            return win
 
-        win = True
-        for i in range(n):
-            if self.board[i][n - 1 - i] != player:
-                win = False
-                break
-        if win:
-            return win
-        return False
+game_instructions = '''
 
-        for row in self.board:
-            for item in row:
-                if item == '-':
-                    return False
+Please read instructions carefully to play the game: \n
+- The game is displayed as a 3X3 grid
+- The user(you) will start the game first with the letter 'O'
+- The computer (opposition) will follow by the letter 'X'
+- To place your letter type a number between 1-9. 
+- This will choose a position on the board.
+- The first display their letter ('O', 'X').
+- You can win either horizontally, vertically or diagonally!
+- If all of the 9 spaces are full and no one has won,
+- The game will end in a tie and no one wins
+
+                           1 | 2 |  3
+                          ------------
+                           4 | 5  | 6
+                          ------------
+                           7 | 8  | 9
+                           '''
+print(game_instructions)
+
+
+# Enter player's names
+def get_name():
+    '''
+    Gets player name and only accept letters.
+    '''
+    print("What is your name?")
+    while True:
+        name = input("My name is: ")
+        if not name.isalpha():
+            print("Invalid Entry Enter only letters.")
+            continue
+
+        else:
+            print(f"Welcome {name}!")
+            break
+    return name
+
+
+get_name()
+
+
+def start_game():
+    '''
+    asks the user to enter 's' so the game can start
+    '''
+    while True:
+        start_game_input = input("Type 'S' Start the game:\n").lower()
+        if start_game_input == 's':
+            game_starting = 'The Game is starting...'
+            print(game_starting, end="\r")
+            sleep(1)
+            print(" " * len(game_starting), end="\r")
+            sleep(1)
+            break
+        else:
+            print(f"{start_game_input}Invalid input, press 'S' to start the game.")
+
+
+start_game()
+
+
+def player_input(board):
+    inp = int(input("Enter a number 1-9: "))
+    if inp >= 1 and inp <= 9 and board[inp-1] == "-":
+        board[inp-1] = current_player
+    else:
+        print("The spot is Occupied!")
+        switch_player()
+
+
+# checking possible winning options
+def check_row(board):
+    global winner
+    if board[0] == board[3] == board[6] and board[0] != "-":
+        winner = board[0]
+        return True
+    elif board[1] == board[4] == board[7] and board[1] != "-":
+        winner = board[1]
+        return True
+    elif board[2] == board[5] == board[8] and board[2] != "-":
+        winner = board[2]
         return True
 
-    def is_board_filled(self):
-        for row in self.board:
-            for item in row:
-                if item == '-':
-                    return False
+
+def check_diagonally(board):
+    global winner
+    if board[0] == board[4] == board[8] and board[0] != "-":
+        winner = board[0]
+        return True
+    elif board[2] == board[4] == board[6] and board[2] != "-":
+        winner = board[2]
         return True
 
-    def swap_player_turn(self, player):
-        return 'X' if player == 'O' else 'O'
 
-    def show_board(self):
-        for row in self.board:
-            for item in row:
-                print(item, end=" ")
-            print()
-
-    def start(self):
-        self.create_board()
-
-        player = 'X' if self.get_random_first_player() == 1 else 'O'
-        while True:
-            print(f"Player {player} turn")
-
-            self.show_board()
-
-            # taking user input
-            row, col = list(
-                map(int, input("Enter row and column numbers to fix spot: ")
-                    .split()))
-            print()
-
-            # fixing the spot
-            self.fix_spot(row - 1, col - 1, player)
-
-            # checking whether current player is won or not
-            if self.is_player_win(player):
-                print(f"Player {player} wins the game!")
-                break
-
-            # checking whether the game is draw or not
-            if self.is_board_filled():
-                print("Match Draw!")
-                break
-
-            # swapping the turn
-            player = self.swap_player_turn(player)
-
-        # showing the final view of board
-        print()
-        self.show_board()
+def check_horizontal(board):
+    global winner
+    if board[0] == board[1] == board[2] and board[1] != "-":
+        winner = board[0]
+        return True
+    elif board[3] == board[4] == board[5] and board[3] != "-":
+        winner = board[3]
+        return True
+    elif board[6] == board[7] == board[8] and board[6] != "-":
+        winner = board[6]
+        return True
 
 
-# starting the game
-tic_tac_toe = TicTacToe()
-tic_tac_toe.start()
+def check_tie(board):
+    global game_running
+    if "-" not in board:
+        print_board(board)
+        print("The game is a Tie!")
+        game_running = False
+
+        return_to_main_page()
+
+
+# switching player 'O' to computer 'X'
+def switch_player():
+    global current_player
+    if current_player == "O":
+        current_player = "X"
+    else:
+        current_player = "O"
+
+
+# computer
+def computer(board):
+    while current_player == "X":
+        position = random.randint(0, 8)
+        if board[position] == "-":
+            board[position] = "X"
+            switch_player()
+
+
+# check to see who the winner is
+def check_win(board):
+    if check_row(board) or check_diagonally(board) or check_horizontal(board):
+        print_board(board)
+        if winner == 'O':
+            print("You are the winner!")
+        elif winner == 'X':
+            print("The computer has won")
+
+        return_to_main_page()
+
+
+def return_to_main_page():
+    '''
+    Ask the users if they want to Exit the game
+    '''
+    print("*** Game Over *** \n")
+
+    print("Enter 'q' Would you like to Exit then game  \n")
+    while True:
+        global name
+        make_a_choice = input().strip()
+        if make_a_choice.lower() == 'q':
+            print(f"Thanks For Playing.")
+            quit()
+
+
+while game_running:
+    print_board(board)
+    player_input(board)
+    check_win(board)
+    check_tie(board)
+    switch_player()
+    computer(board)
+    check_tie(board)
