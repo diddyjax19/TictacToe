@@ -1,11 +1,10 @@
-'''imports'''
-
+'''importing modules'''
 from time import sleep  # welcome message animation
 import sys  # to access parameters and functions
 import random  # computers turn
 
-# welcome title with animation
-welcome_message = "Tic_Tac_Toe game!\n"
+# welcome title with animations
+welcome_message = "Welcome to My Tic_Tac_Toe game!\n"
 
 for x in welcome_message:
     print(x, end='')
@@ -39,7 +38,7 @@ Please read instructions carefully to play the game: \n
 - The game is displayed as a 3X3 grid
 - The user(you) will start the game first with the letter 'O'
 - The computer (opposition) will follow by the letter 'X'
-- To place your letter type a number between 1-9. 
+- To place your letter type a number between 1-9
 - This will choose a position on the board.
 - The first display their letter ('O', 'X').
 - You can win either horizontally, vertically or diagonally!
@@ -90,7 +89,7 @@ def start_game():
             sleep(1)
             break
         else:
-            print(f"{start_game_input}Invalid input, press 'S' to start the game.")
+            print(f"{start_game_input}Invalid,press 'S' to start the game.")
 
 
 start_game()
@@ -187,14 +186,32 @@ def return_to_main_page():
     Ask the users if they want to Exit the game
     '''
     print("*** Game Over *** \n")
-
-    print("Enter 'q' Would you like to Exit then game  \n")
+    print("Enter 'R' Restart Game. \n")
+    print("Enter 'q' Would you like to End the game  \n")
     while True:
         global name
         make_a_choice = input().strip()
         if make_a_choice.lower() == 'q':
-            print(f"Thanks For Playing.")
+            print("Thanks For Playing.")
             quit()
+        elif make_a_choice == 'R':
+            print(f'Welcome Again {get_name()}')
+            get_name()
+            print_board(board)
+            reset_board()
+            player_input(board)
+           
+           
+        else:
+            print("Invalid selection. Please select 'R' or 'q'")
+
+
+def reset_board():
+    '''
+    Resets the board if user wants to play again
+    '''
+    board.clear()
+    board.extend([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
 
 
 while game_running:
