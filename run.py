@@ -196,7 +196,6 @@ def return_to_main_page():
             quit()
         elif make_a_choice == 'R':
             print(f'Welcome Again {get_name()}')
-            get_name()
             print_board(board)
             reset_board()
             player_input(board)
