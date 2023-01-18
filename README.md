@@ -96,10 +96,10 @@ Once the game is finished, a "Game ended" message is printed, and the user will 
 ## Future Features
 
 - Give an option to the user to choose the symbol they want
-- Let user decide if they want to go first or second
-- Implement as option to allow the user to play with someone else, rather than just against the computer
+- Allow users to choose whether to go first or second.
+- Include a feature that would enable users to play with others rather than simply the computer.
 - Allow the user to be able to share their score
-- Make an impossible to win game, against the computer
+- Make an impossible to win game, against the computer.
 
 
 ## Technology Used
@@ -161,11 +161,7 @@ Testing was conducted very carefully through the entire project. Pep 8 validator
 
 ## Bugs and Solutions
 
-- Function for scores was not working, it was not being called correctly. Fixed the issue by calling it in  who_is_the_winner(board) function, right after checking win for all possible rows.
-
-- Method to make 'Game starting' disappear after few second was not working'. Needed to implement print(" " * len(game_starting), end="\r").
-
-- Name and move input validation was not fully functional. Went back to 'Love Sandwiches' video for exceptions/errors, and implemented the code with the correct syntax.
+- Code was written to for the restart of the code but due to some issues it dowsnt load.
 
 
 ## Development and Deployment
@@ -187,12 +183,12 @@ The deployment is made using [Heroku](https://www.heroku.com/) following the lis
 9. Click on "Connect"
 10. Scroll down and click on "Deploy Branch"
 11. You will see a message "The app was successfully deployed" when the app is built with python and all the depencencies
-12. Click on view and you will see the [deployed site](https://p3-tic-tac-toe.herokuapp.com/)
+12. Click on view and you will see the [deployed site](https://tictac-game.herokuapp.com/)
 
 
 ## Credits
 
-- A huge thanks goes to my mentor Martina T. who guided me with precious advices in order to pass the challenge. Further help and assistance was provided by Code institute Tutors and Love Sanwiches guided project.
+- A huge thanks goes to my mentor Dario Carrasquel. who guided me with precious advices in order to pass the challenge. Further help and assistance was provided by Code institute Tutors and Love Sanwiches guided project.
 - Questions and answers by fellow students on Slack were heavily consulted.
 
 [Back to top](#table-of-contents)

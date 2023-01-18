@@ -208,7 +208,14 @@ def return_to_main_page():
             print(f'Welcome Again {valid_name()}')
             start_game()
             reset_board()
-            player_input(board)
+            print_board(board)
+            start_game()
+            check_win(board)
+            check_tie(board)
+            switch_player()
+            computer(board)
+            check_tie(board)
+    
         else:
             print("Invalid selection. Please select 'R' or 'q'")
 
