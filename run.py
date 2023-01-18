@@ -186,31 +186,22 @@ def return_to_main_page():
     Ask the users if they want to Exit the game
     '''
     print("*** Game Over *** \n")
-    print("Enter 'R' Restart Game. \n")
-    print("Enter 'q' Would you like to End the game  \n")
+    
     while True:
-        global name
-        make_a_choice = input().strip()
-        if make_a_choice.lower() == 'q':
-            print("Thanks For Playing.")
-            quit()
-        elif make_a_choice == 'R':
-            print(f'Welcome Again {get_name()}')
-            print_board(board)
-            reset_board()
-            player_input(board)
-           
-           
+        print("Would you like to play again?")
+        print("Enter 'y' for YES or 'n' for NO:")
+        user_choice = input().strip().lower()
+        if user_choice == 'y':
+            # clear_screen()            
+            display_board()
+            run_game()
+        elif user_choice == 'n':
+            clear_screen()
+            print("Thank you for playing!")
+            break
         else:
-            print("Invalid selection. Please select 'R' or 'q'")
+            print("Invalid answer. Press 'y' to start and 'n' to quit.")
 
-
-def reset_board():
-    '''
-    Resets the board if user wants to play again
-    '''
-    board.clear()
-    board.extend([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
 
 
 while game_running:
@@ -221,3 +212,4 @@ while game_running:
     switch_player()
     computer(board)
     check_tie(board)
+    
