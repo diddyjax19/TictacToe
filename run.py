@@ -36,14 +36,14 @@ game_instructions = '''
 
 Please read instructions carefully to play the game: \n
 - The game is displayed as a 3X3 grid
-- The user(you) will start the game first with the letter 'O'
-- The computer (opposition) will follow by the letter 'X'
+- The user(you) will start the game and is denoted with the letter 'O'
+- The computer (opposition) is denoted by the letter 'X'
 - To place your letter type a number between 1-9
 - This will choose a position on the board.
-- The first display their letter ('O', 'X').
 - You can win either horizontally, vertically or diagonally!
-- If all of the 9 spaces are full and no one has won,
-- The game will end in a tie and no one wins
+- If all 9 spaces are full and no one has won,
+- The game  ends in a tie and there will be no winner
+- The first among the players who have 3 same symbols in a line.
 
                            1 | 2 |  3
                           ------------
@@ -55,7 +55,7 @@ print(game_instructions)
 
 
 # Enter player's names
-def get_name():
+def valid_name():
     '''
     Gets player name and only accept letters.
     '''
@@ -72,7 +72,7 @@ def get_name():
     return name
 
 
-get_name()
+valid_name()
 
 
 def start_game():
@@ -180,28 +180,37 @@ def check_win(board):
 
         return_to_main_page()
 
+# clear the board if user want to play again
+
+
+def reset_board():
+    '''
+    Resets the board if user wants to play again
+    '''
+    board.clear()
+    board.extend([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
+
 
 def return_to_main_page():
     '''
     Ask the users if they want to Exit the game
     '''
     print("*** Game Over *** \n")
-    
+    print("Enter 'R' Restart Game. \n")
+    print("Enter 'q' Would you like to End the game  \n")
     while True:
-        print("Would you like to play again?")
-        print("Enter 'y' for YES or 'n' for NO:")
-        user_choice = input().strip().lower()
-        if user_choice == 'y':
-            # clear_screen()            
-            display_board()
-            run_game()
-        elif user_choice == 'n':
-            clear_screen()
-            print("Thank you for playing!")
-            break
+        global name
+        make_a_choice = input().strip()
+        if make_a_choice.lower() == 'q':
+            print("Thanks For Playing.")
+            quit()
+        elif make_a_choice == 'R':
+            print(f'Welcome Again {valid_name()}')
+            start_game()
+            reset_board()
+            player_input(board)
         else:
-            print("Invalid answer. Press 'y' to start and 'n' to quit.")
-
+            print("Invalid selection. Please select 'R' or 'q'")
 
 
 while game_running:

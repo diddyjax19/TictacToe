@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Tic Tac Toe game is the third project challenge with Code Institute in order to acquire the Full Stack Developer Diploma. The game is created using Python, as required.
+Tic Tac Toe game is the third project challenge with Code Institute in order to acquire the Full Stack Developer Diploma. Tic Tac Toe is a Python terminal game, which runs in the Code Institute mock temrinal on Heroku.
 
 Two players take turns drawing a "O" or a "X" on one square of a nine-square grid in the game of tic-tac-toe, which is played against the computer.
 The first person to line up three identical symbols horizontally, vertically, or diagonally wins!
@@ -130,39 +130,33 @@ Once the game is finished, a "Game ended" message is printed, and the user will 
 Testing was conducted very carefully through the entire project. Pep 8 validator came back with no issues
 [Pep8](http://pep8online.com/)
 
-![Validator Pep8](images/pep8.png)
+![Validator Pep8](screenshot/python linter.png)
 
 ### Exception/Error testing:
 
 - User's name validation was tested checking all possible inputs. Empty spaces, numbers or symbols not accepted.
 
-![Name Validation](images/name-validation.png)
+![Name Input Validation](screenshot/name1.png)
 
 - Start game input validated carefully, testing all possible inputs. Empty spaces, numbers or symbols not accepted. Lower or Uppercase 'S' accepted.
 
-![Start Input Validation](images/start-input-validation.png)
+![Start Input Validation](screenshot/open1.png)
 
 - Spot on board input validated carefully, testing all possible inputs. Empty spaces, letters or symbols not accepted.
 
-![Spot Input Validation](images/spot-input-validation.png)
+![Spot Input Validation](screenshot/spots1.png)
 
-- Already occupied spot on board input validated, tested all possible inputs. 
+- Quit or play input validated too. R for play again and 'Q' uppercase or lowercase allowed.
 
-![Same spot Input Validation](images/same-spot-validation.png)
-
-- Quit or play input validated too. 1 for play again and 'Q' uppercase or lowercase allowed.
-
-![Quit replay Validation](images/quit-replay-validation.png)
+![Quit replay Validation](screenshot/game1.png)
 
 
 
 - Python pylint reports currently 3 main and known issues:
 
-  - Using the global statement: global statement is used during the creation of the game to access global variables, listed at the top of python file. The usage of 'global' is not fully recommended as it can make harder to detect bugs and issuees in a very big program, however building Tic Tac Toe game as a beginner, I found it a simple approach to define the global variables in the begining of the file and access them later whenever needed in the functions.
+  - No errors found using the python Pylint
 
-  - Constant name 'variable' doesn't conform to UPPER_CASE naming style: variable used are not indended as constant in this game, they respect the expected naming conventions, furthermore the code passes Pep8 Validator correctly.
-
-  - Redefining  name 'board' from outer the scope: this issue passes through Pep8 as well. This was used for clarity purposes. As per Mentor and Tutors confirmation, again, Pep8 did not detect any issue regarding this Pylint error.
+  ![Python Pylint Validation](screenshot/linter1.png)
 
 
 ## Bugs and Solutions
