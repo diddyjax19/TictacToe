@@ -4,7 +4,7 @@ import sys  # to access parameters and functions
 import random  # computers turn
 
 # welcome title with animations
-welcome_message = "Welcome to My Tic_Tac_Toe game!\n"
+welcome_message = "Welcome to My Ultimate Tic_Tac_Toe game!\n"
 
 for x in welcome_message:
     print(x, end='')
@@ -196,7 +196,6 @@ def return_to_main_page():
     Ask the users if they want to Exit the game
     '''
     print("*** Game Over *** \n")
-    print("Enter 'R' Restart Game. \n")
     print("Enter 'q' Would you like to End the game  \n")
     while True:
         global name
@@ -204,20 +203,6 @@ def return_to_main_page():
         if make_a_choice.lower() == 'q':
             print("Thanks For Playing.")
             quit()
-        elif make_a_choice == 'R':
-            print(f'Welcome Again {valid_name()}')
-            start_game()
-            reset_board()
-            print_board(board)
-            start_game()
-            check_win(board)
-            check_tie(board)
-            switch_player()
-            computer(board)
-            check_tie(board)
-    
-        else:
-            print("Invalid selection. Please select 'R' or 'q'")
 
 
 while game_running:
@@ -228,4 +213,3 @@ while game_running:
     switch_player()
     computer(board)
     check_tie(board)
-    

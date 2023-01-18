@@ -98,7 +98,7 @@ Once the game is finished, a "Game ended" message is printed, and the user will 
 - Give an option to the user to choose the symbol they want
 - Allow users to choose whether to go first or second.
 - Include a feature that would enable users to play with others rather than simply the computer.
-- Allow the user to be able to share their score
+- Allow the user to be able to share their score.
 - Make an impossible to win game, against the computer.
 
 
@@ -161,7 +161,7 @@ Testing was conducted very carefully through the entire project. Pep 8 validator
 
 ## Bugs and Solutions
 
-- Code was written to for the restart of the code but due to some issues it dowsnt load.
+- No bugs
 
 
 ## Development and Deployment
