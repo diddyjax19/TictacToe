@@ -95,13 +95,21 @@ def start_game():
 start_game()
 
 
+
 def player_input(board):
-    inp = int(input("Enter a number 1-9: "))
-    if inp >= 1 and inp <= 9 and board[inp-1] == "-":
-        board[inp-1] = current_player
-    else:
-        print("The spot is Occupied!")
-        switch_player()
+    while True:
+        try:
+            
+           inp = int(input("Enter a number 1-9: "))
+           if inp >= 1 and inp <= 9 and board[inp-1] == "-":
+               board[inp-1] = current_player
+               break
+           else:
+               print("The spot is Occupied!")
+           switch_player()
+        except ValueError:
+            print ("Invalid entry Please enter From ")
+
 
 
 # checking possible winning options
@@ -192,6 +200,7 @@ def reset_board():
 
 
 def return_to_main_page():
+    
     '''
     Ask the users if they want to Exit the game
     '''
@@ -201,8 +210,9 @@ def return_to_main_page():
         global name
         make_a_choice = input().strip()
         if make_a_choice.lower() == 'q':
-            print("Thanks For Playing.")
-            quit()
+            sys.exit("Thanks For Playing.")
+        else:
+            start_game()
 
 
 while game_running:
@@ -213,3 +223,6 @@ while game_running:
     switch_player()
     computer(board)
     check_tie(board)
+
+  
+
