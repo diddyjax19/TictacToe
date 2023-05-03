@@ -15,7 +15,7 @@ game_instructions = ['Please read instructions carefully to play the game:',
 '- The game is displayed as a 3X3 grid',
 '- The user(you) will start the game and is denoted with the letter "O"',
 '- The computer (opposition) is denoted by the letter "X"',
-'- To place your letter type a number between a1','a2','a3','b1','b2','b3','c1','c2','c3'.
+'- To place your letter type a number between a1-a3 b1-b3 c1-c3',
 '- This will choose a position on the board.',
 '- You can win either horizontally, vertically or diagonally!',
 '- If all 9 spaces are full and no one has won',
