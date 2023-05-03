@@ -9,7 +9,7 @@ welcome_message = "Welcome to My Ultimate Tic_Tac_Toe game!\n"
 for x in welcome_message:
     print(x, end='')
     sys.stdout.flush()
-    sleep(.1)
+    sleep(.2)
     
 game_instructions = ['Please read instructions carefully to play the game:',
 '- The game is displayed as a 3X3 grid',
@@ -25,7 +25,47 @@ game_instructions = ['Please read instructions carefully to play the game:',
 for i in game_instructions:
     print(i)
     sys.stdout.flush()
-    sleep(.1)
+    sleep(.2)
+
+# Enter player's names
+def valid_name():
+    '''
+    Gets player name and only accept letters.
+    '''
+    print("What is your name?")
+    while True:
+        name = input("My name is: ")
+        if not name.isalpha():
+            print("Invalid Entry Enter only letters.")
+            continue
+
+        else:
+            print(f"Welcome {name}!")
+            break
+    return name
+
+
+valid_name()
+
+
+def start_game():
+    '''
+    asks the user to enter 's' so the game can start
+    '''
+    while True:
+        start_game_input = input("Type 'S' Start the game:\n").lower()
+        if start_game_input == 's':
+            game_starting = 'The Game is starting...'
+            print(game_starting, end="\r")
+            sleep(1)
+            print(" " * len(game_starting), end="\r")
+            sleep(1)
+            break
+        else:
+            print(f"{start_game_input}Invalid,press 'S' to start the game.")
+
+
+start_game()
 
 
 #variables
