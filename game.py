@@ -4,7 +4,7 @@ import sys  # to access parameters and functions
 import random  # computers turn
 
 # welcome title with animations
-welcome_message = "Welcome to My Ultimate Tic_Tac_Toe game!\n"
+welcome_message = "Welcome to My Tic_Tac_Toe game!\n"
 
 for x in welcome_message:
     print(x, end='')
@@ -223,6 +223,3 @@ while game_running:
     switch_player()
     computer(board)
     check_tie(board)
-
-  
-
