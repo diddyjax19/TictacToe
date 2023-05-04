@@ -65,7 +65,7 @@ After the player has read the instruction he can then input his name to start pl
 ### Invalid Entry.
 
 In this stage if the player enters the numbers and not letters ,there is an error message that appears and indicates the error.
-![Instructions](screenshot/invalid entry1.png) 
+![Instructions](screenshot/1.png) 
 
 
 ### Start Game
@@ -77,10 +77,10 @@ In the next step the user is asked to type "S" to start playing. Thanks to the v
 
 ### Play Game
 
-The user will get to play first, with the symbol 'O', while the PC will be shown as "X". Based on the spot typed, from 1 to 9, the board will be filled with the relative symbol.
+The user will get to play first, with the symbol 'O', while the PC will be shown as "X". Based on the spot typed, from a1-a3 or b1-b3 or c1-c3 the board will be filled with the relative symbol.
 The game is fully validated, so if the user chooses a spot that is already taken, they will get the relative "error" message. In case of a win, the score will incerement and will be shown right on top on the game board.
 
-![Play Game](screenshot/Start game.png)
+![Play Game](screenshot/game.png)
 
 
 ### Play Again or quit
@@ -88,7 +88,7 @@ The game is fully validated, so if the user chooses a spot that is already taken
 Once the game is finished, a "Game ended" message is printed, and the user will have the option to start again (keeping the previous score), or quit the game. In case they want to quit, a thank you message will be printed.
 
 
-![Play Game](screenshot/Restart or end game.png)
+![Play Game](screenshot/gameend.png)
  
 [Back to top](#table-of-contents)
 
@@ -136,19 +136,19 @@ Testing was conducted very carefully through the entire project. Pep 8 validator
 
 - User's name validation was tested checking all possible inputs. Empty spaces, numbers or symbols not accepted.
 
-![Name Input Validation](screenshot/name1.png)
+![Name Input Validation](screenshot/invalid-name.png)
 
 - Start game input validated carefully, testing all possible inputs. Empty spaces, numbers or symbols not accepted. Lower or Uppercase 'S' accepted.
 
-![Start Input Validation](screenshot/open1.png)
+![Start Input Validation](screenshot/invalid.start.png)
 
 - Spot on board input validated carefully, testing all possible inputs. Empty spaces, letters or symbols not accepted.
 
-![Spot Input Validation](screenshot/spots1.png)
+![Spot Input Validation](screenshot/invalid-game.png)
 
-- Quit or play input validated too. R for play again and 'Q' uppercase or lowercase allowed.
+- Quit or play input validated too. Yes for play again and NO to end the game.
 
-![Quit replay Validation](screenshot/game1.png)
+![Quit replay Validation](screenshot/gameend.png)
 
 
 
