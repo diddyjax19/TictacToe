@@ -170,11 +170,11 @@ def gameon_choice(x):
     while not continue_check:
         result = input('Would you like to play again? Yes or No?: ').upper()
         if result in continue_playing:
-            if result == 'YES' or 'Y':
+            if result == 'YES' or result == 'Y':
                 x = True
             else:
                 x = False
-            continue_check = True
+                continue_check = True
         else:
             print('Sorry, not a valid choice!')
     return x
