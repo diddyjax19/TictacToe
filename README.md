@@ -58,7 +58,8 @@ After the validated name is inserted, a small explaination of the rules is shown
 ### Enter name
 
 After the player has read the instruction he can then input his name to start playing.
-![Instructions](screenshot/name.png) 
+
+![Name](screenshot/name.png) 
 
 
 
@@ -72,7 +73,7 @@ In this stage if the player enters the numbers and not letters ,there is an erro
 
 In the next step the user is asked to type "S" to start playing. Thanks to the validation applied, the terminal will accept any "S" format, uppercase or lowercase, if the element typed by the user is different that "S" they will get an error message stating to type "S" again, correctly.
 
-![Start Game](screenshot/Start game.png) 
+![Start Game](screenshot/Start.game.png) 
 
 
 ### Play Game
