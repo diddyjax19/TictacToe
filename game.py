@@ -9,13 +9,13 @@ welcome_message = "Welcome to My Ultimate Tic_Tac_Toe game!\n"
 for x in welcome_message:
     print(x, end='')
     sys.stdout.flush()
-    sleep(.2)
+    sleep(.1)
     
 game_instructions = ['Please read instructions carefully to play the game:',
 '- The game is displayed as a 3X3 grid',
 '- The user(you) will start the game and is denoted with the letter "O"',
 '- The computer (opposition) is denoted by the letter "X"',
-'- To place your letter type a number between a1-a3 b1-b3 c1-c3',
+'- To place your letter type a number between 1-9',
 '- This will choose a position on the board.',
 '- You can win either horizontally, vertically or diagonally!',
 '- If all 9 spaces are full and no one has won',
@@ -25,47 +25,7 @@ game_instructions = ['Please read instructions carefully to play the game:',
 for i in game_instructions:
     print(i)
     sys.stdout.flush()
-    sleep(.2)
-
-# Enter player's names
-def valid_name():
-    '''
-    Gets player name and only accept letters.
-    '''
-    print("What is your name?")
-    while True:
-        name = input("My name is: ")
-        if not name.isalpha():
-            print("Invalid Entry Enter only letters.")
-            continue
-
-        else:
-            print(f"Welcome {name}!")
-            break
-    return name
-
-
-valid_name()
-
-
-def start_game():
-    '''
-    asks the user to enter 's' so the game can start
-    '''
-    while True:
-        start_game_input = input("Type 'S' Start the game:\n").lower()
-        if start_game_input == 's':
-            game_starting = 'The Game is starting...'
-            print(game_starting, end="\r")
-            sleep(1)
-            print(" " * len(game_starting), end="\r")
-            sleep(1)
-            break
-        else:
-            print(f"{start_game_input}Invalid,press 'S' to start the game.")
-
-
-start_game()
+    sleep(.6)
 
 
 #variables
@@ -162,21 +122,24 @@ def position_choice(player):
  
 def gameon_choice(x):
     # Ask to either restart game or not
- 
-    continue_playing = ['YES','NO', 'Y', 'N']
-    result = ''
-    continue_check = False
     
+    continue_check = False
+    result = input('Would you like to play again? Yes or No?: ')
+    result = result.lower()
     while not continue_check:
-        result = input('Would you like to play again? Yes or No?: ').upper()
-        if result in continue_playing:
-            if result == 'YES' or result == 'Y':
-                x = True
-            else:
-                x = False
-                continue_check = True
-        else:
-            print('Sorry, not a valid choice!')
+        
+        if result in ['no', 'n']:
+            sys.exit("Thank you for playing ❤️!")
+            continue_check = True
+            
+        elif result in ['yes','y']:
+            break
+            reset_game()
+            clear()
+            display_board(board)
+            game_on=True
+        
+        
     return x
  
 def gameover_check(game_list,board):
