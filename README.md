@@ -8,7 +8,7 @@ Two players take turns drawing a "O" or a "X" on one square of a nine-square gri
 The first person to line up three identical symbols horizontally, vertically, or diagonally wins!
 
 
-Please find the live project [here:](https://tictac-game.herokuapp.com/) 
+Please find the live project [here:](https://tictactoeapp.herokuapp.com/) 
 
 ![AmIResponsive](screenshot/responsive.png)
 
